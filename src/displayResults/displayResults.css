@@ -1,0 +1,53 @@
+.displayResults {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 1;
+	transform: translate3d(0,0,0);
+}
+.displayResults .results {
+	background: #CCCCCC;
+	font-size: 2rem;
+	padding: 10px 20px;
+	margin: 40px;
+	border-radius: 10px;
+	transform: scale(1.5);
+	opacity: 0;
+	/* transition: all 500ms; pageload issue here */
+}
+.displayResults .showEffect {
+	transform: scale(1);
+	opacity: 1;
+}
+.displayResults .hideEffect {
+	transform: scale(.5);
+	opacity: 0;
+}
+.displayResults .crit-success {
+	color: green;
+}
+.displayResults .crit-failure {
+	color: firebrick;
+}
+.displayResults .die-dropped {
+	text-decoration: line-through;
+	opacity: .4;
+}
+.displayResults .die-rerolled {
+	text-decoration: line-through;
+	opacity: .4;
+}
+.displayResults .die-exploded {
+	color: green;
+}
+.displayResults .die-exploded::after {
+	content: '!';
+	display: 'block';
+	color: green;
+}
