@@ -1,0 +1,18 @@
+.adv-roller {
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.adv-roller--notation {
+  padding: 10px;
+  margin-right: 5px;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 5px;
+}
+.adv-roller--clear {
+  padding: 10px;
+}
