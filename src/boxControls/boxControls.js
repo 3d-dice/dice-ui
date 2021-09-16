@@ -19,7 +19,7 @@ class BoxControls {
 			spinForce: 6,
 			throwForce: 2,
 			zoomLevel: 3,
-			theme: 'nebula',
+			theme: '#0974E6',
 		}
 		// callback
 		this.onUpdate = options?.onUpdate || noop
@@ -44,6 +44,7 @@ class BoxControls {
 		f2.add(this.config,'delay',10,500,10).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'zoomLevel',0,7,1).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'theme',['galaxy','gemstone','glass','iron','nebula','sunrise','sunset','walnut']).onChange(this.handleUpdate.bind(this))
+		f2.addColor(this.config, 'theme').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'enableShadows').onChange(this.handleUpdate.bind(this))
 		f2.open()
 	}
