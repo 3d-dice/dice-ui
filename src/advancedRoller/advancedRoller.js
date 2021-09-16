@@ -20,10 +20,10 @@ class AdvancedRoller{
 		this.DRP = new DiceParser()
 
 		// callback events
-		this.onSubmit = options.onSubmit || noop
-		this.onClear = options.onClear || noop
-		this.onReroll = options.onReroll || noop
-		this.onResults = options.onResults || noop
+		this.onSubmit = options?.onSubmit || noop
+		this.onClear = options?.onClear || noop
+		this.onReroll = options?.onReroll || noop
+		this.onResults = options?.onResults || noop
 		this.init()
 	}
 
