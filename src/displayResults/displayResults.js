@@ -1,18 +1,19 @@
 import './displayResults.css'
 
 class DisplayResults {
-	constructor() {
+	constructor(selector) {
 		this.elem = document.createElement('div');
 		this.resultsElem = document.createElement('div')
 		this.elem.className = 'displayResults'
 		this.resultsElem.className = 'results'
 		this.timeout = 500
+		this.target = document.querySelector(selector) || document.body
 		this.init()
 	}
 
 	async init(){
 		this.elem.append(this.resultsElem)
-		document.body.prepend(this.elem)
+		this.target.prepend(this.elem)
 	}
 
 	showResults(data){
