@@ -8,6 +8,7 @@ class BoxControls {
 		this.gui = new dat.GUI({
 			autoPlace: true
 		})
+		this.gui.domElement.parentElement.style.zIndex = 2
 		this.config = {
 			enableShadows: true,
 			delay: 10,
@@ -56,6 +57,7 @@ class BoxControls {
 		f2.open()
 
 		this.gui.close()
+
 	}
 	handleUpdate(e){
 		this.onUpdate(this.config)
