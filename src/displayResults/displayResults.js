@@ -14,6 +14,8 @@ class DisplayResults {
 	async init(){
 		this.elem.append(this.resultsElem)
 		this.target.prepend(this.elem)
+		const that = this
+		this.resultsElem.addEventListener('click', that.clear.bind(that))
 	}
 
 	showResults(data){

@@ -12,6 +12,7 @@
 	transform: translate3d(0,0,0);
 }
 .displayResults .results {
+	cursor: pointer;
 	background: #CCCCCC;
 	font-size: 2rem;
 	padding: 10px 20px;
@@ -19,6 +20,7 @@
 	border-radius: 10px;
 	transform: scale(1.5);
 	opacity: 0;
+	pointer-events: all;
 	/* transition: all 500ms; pageload issue here */
 }
 .displayResults .showEffect {
