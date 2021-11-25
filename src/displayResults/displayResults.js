@@ -1,4 +1,7 @@
 import './displayResults.css'
+import cancelIcon from './icons/cancel.svg'
+import checkIcon from './icons/checkmark.svg'
+import minusIcon from './icons/minus.svg'
 
 class DisplayResults {
 	constructor(selector) {
@@ -14,11 +17,11 @@ class DisplayResults {
 	async init(){
 		this.elem.append(this.resultsElem)
 		this.target.prepend(this.elem)
-		const that = this
-		this.resultsElem.addEventListener('click', that.clear.bind(that))
+		this.resultsElem.addEventListener('click', () => this.clear())
 	}
 
 	showResults(data){
+		console.log(`data`, data)
 		let rolls
 		if(data.rolls && !Array.isArray(data.rolls)){
 			rolls = Object.values(data.rolls).map(roll => roll)
@@ -27,16 +30,22 @@ class DisplayResults {
 			rolls = Object.values(this.recursiveSearch(data,'rolls')).map(group => {
 				return Object.values(group)
 			}).flat()
-
 		}
-		let total = data.value || rolls.reduce((val,roll) => val + roll.result,0)
+
+		let total = data.hasOwnProperty('value') ? data.value : rolls.reduce((val,roll) => val + roll.result,0)
 		let resultString = ''
 
 		rolls.forEach((roll,i) => {
+			let val
 			if(i !== 0) {
 				resultString += ', '
 			}
-			let val = roll.value || roll.result
+			
+			if(roll.success !== null){
+				val = roll.success ? `<svg class="success"><use href="${checkIcon}#checkmark"></use></svg>` : roll.failures > 0 ? `<svg class="failure"><use href="${cancelIcon}#cancel"></use></svg>` : `<svg class="null"><use href="${minusIcon}#minus"></use></svg>`
+			} else {
+				val = roll.value || roll.result
+			}
 			let classes = ''
 
 			if(roll.critical === "success" || (roll.result && roll.sides == roll.result)) {

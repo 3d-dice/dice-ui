@@ -53,3 +53,21 @@
 	display: 'block';
 	color: green;
 }
+.displayResults .success,
+.displayResults .failure,
+.displayResults .null
+{
+	position: relative;
+	top: 6px;
+	width: 32px;
+	height: 32px;
+}
+.displayResults .success {
+	fill: #4B8968;
+}
+.displayResults .failure {
+	fill: #A82E2D;
+}
+.displayResults .null {
+	fill: #3E577D;
+}
