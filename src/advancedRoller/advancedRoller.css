@@ -1,9 +1,10 @@
 .adv-roller {
   position: absolute;
-  top: 5%;
+  top: 0px;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 30px;
 }
 
 .adv-roller--notation {
