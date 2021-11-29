@@ -21,7 +21,7 @@ class DisplayResults {
 	}
 
 	showResults(data){
-		console.log(`data`, data)
+		// console.log(`data`, data)
 		let rolls
 		if(data.rolls && !Array.isArray(data.rolls)){
 			rolls = Object.values(data.rolls).map(roll => roll)
@@ -40,19 +40,19 @@ class DisplayResults {
 			if(i !== 0) {
 				resultString += ', '
 			}
-			
-			if(roll.success !== null){
+
+			if(roll.success !== undefined && roll.success !== null){
 				val = roll.success ? `<svg class="success"><use href="${checkIcon}#checkmark"></use></svg>` : roll.failures > 0 ? `<svg class="failure"><use href="${cancelIcon}#cancel"></use></svg>` : `<svg class="null"><use href="${minusIcon}#minus"></use></svg>`
 			} else {
 				val = roll.value || roll.result
 			}
-			let classes = ''
+			let classes = `d${roll.die}`
 
 			if(roll.critical === "success" || (roll.result && roll.sides == roll.result)) {
-				classes = 'crit-success'
+				classes += ' crit-success'
 			}
 			if(roll.critical === "failure" || (roll.result && roll.result === 1)) {
-				classes = 'crit-failure'
+				classes += ' crit-failure'
 			}
 			if(roll.drop) {
 				classes += ' die-dropped'
