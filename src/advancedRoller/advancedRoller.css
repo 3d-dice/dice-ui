@@ -1,10 +1,17 @@
 .adv-roller {
   position: absolute;
   top: 0px;
-  width: 100%;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   margin: 30px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.adv-roller form {
+  margin-bottom: 10px;
 }
 
 .adv-roller--notation {
@@ -17,3 +24,10 @@
 .adv-roller--clear {
   padding: 10px;
 }
+
+.adv-roller .footnote,
+.adv-roller .footnote a
+{
+  color: #fff;
+}
+

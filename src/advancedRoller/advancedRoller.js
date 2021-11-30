@@ -12,6 +12,7 @@ class AdvancedRoller{
 					<input class="adv-roller--notation" placeholder="2d20" autocomplete="off" />
 					<input class="adv-roller--clear" type="reset" value="Clear" />
 				</form>
+				<div class="footnote">* accepts <em>most</em> roll formats seen on <a href="https://wiki.roll20.net/Dice_Reference#Roll20_Dice_Specification" target="_blank">Roll 20 Dice Specification</a></div>
 			</div>
 		`)
 		this.form = this.elem.querySelector('.adv-roller--form')
