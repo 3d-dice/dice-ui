@@ -12,21 +12,22 @@ class BoxControls {
 		this.config = {
 			enableShadows: true,
 			delay: 10,
-			gravity: 3,
-			mass: 3,
+			gravity: 1,
+			mass: 1,
 			friction: .8,
 			restitution: 0,
 			linearDamping: .5,
 			angularDamping: .4,
-			startingHeight: 15,
+			startingHeight: 20,
 			settleTimeout: 5000,
 			spinForce: 6,
-			throwForce: 4,
-			zoomLevel: 3,
+			throwForce: 3,
+			scale: 4,
 			theme: '#0974E6',
 			themes: [
 				'purpleRock',
-				'diceOfRolling'
+				'diceOfRolling',
+				'galvanized'
 			]
 		}
 		// callback
@@ -42,15 +43,15 @@ class BoxControls {
 		f1.add(this.config,'restitution',0,1,.1).onChange(this.handleUpdate.bind(this))
 		f1.add(this.config,'linearDamping',0,1,.1).onChange(this.handleUpdate.bind(this))
 		f1.add(this.config,'angularDamping',0,1,.1).onChange(this.handleUpdate.bind(this))
-		f1.add(this.config,'spinForce',0,30,1).onChange(this.handleUpdate.bind(this))
-		f1.add(this.config,'throwForce',0,15,.1).onChange(this.handleUpdate.bind(this))
-		f1.add(this.config,'startingHeight',1,45,1).onChange(this.handleUpdate.bind(this))
-		f1.add(this.config,'settleTimeout',1000,10000,1000).onChange(this.handleUpdate.bind(this))
+		f1.add(this.config,'spinForce',0,15,1).onChange(this.handleUpdate.bind(this))
+		f1.add(this.config,'throwForce',0,15,1).onChange(this.handleUpdate.bind(this))
+		f1.add(this.config,'startingHeight',1,65,1).onChange(this.handleUpdate.bind(this))
+		f1.add(this.config,'settleTimeout',1000,20000,1000).onChange(this.handleUpdate.bind(this))
 		f1.open()
 		
 		const f2 = this.gui.addFolder('Rendering')
 		f2.add(this.config,'delay',10,500,10).onChange(this.handleUpdate.bind(this))
-		f2.add(this.config,'zoomLevel',0,7,1).onChange(this.handleUpdate.bind(this))
+		f2.add(this.config,'scale',1,10,.1).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'theme',this.config.themes).onChange(this.handleUpdate.bind(this))
 		f2.addColor(this.config, 'theme').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'enableShadows').onChange(this.handleUpdate.bind(this))
