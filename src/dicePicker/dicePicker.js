@@ -135,6 +135,11 @@ class dicePicker {
     this.output.innerHTML = newNotation
   }
 
+  setNotation(notation = {}) {
+    this.notation = notation
+    this.updateNotation()
+  }
+
   clear(){
     this.notation = deepCopy(defaultNotation)
     this.DRP.clear()
