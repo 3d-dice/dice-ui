@@ -8,7 +8,7 @@ class DisplayResults {
 		this.elem = document.createElement('div');
 		this.resultsElem = document.createElement('div')
 		this.elem.className = 'displayResults'
-		this.resultsElem.className = 'results'
+		this.resultsElem.className = 'results hidden'
 		this.timeout = 500
 		this.target = document.querySelector(selector) || document.body
 		this.init()
@@ -76,12 +76,12 @@ class DisplayResults {
 		if(!this.resultsElem.style.transition) {
 			this.resultsElem.style.transition = `all ${this.timeout}ms`
 		}
-		this.resultsElem.classList.remove('hideEffect')
-		this.resultsElem.classList.add('showEffect')
+		// this.resultsElem.classList.remove('hideEffect')
+		this.resultsElem.classList.replace('hidden','showEffect')
 	}
 	clear(){
 		this.resultsElem.classList.replace('showEffect','hideEffect')
-		setTimeout(()=>this.resultsElem.classList.remove('hideEffect'),this.timeout)
+		setTimeout(()=>this.resultsElem.classList.replace('hideEffect', 'hidden'),this.timeout)
 	}
 	// make this static for use by other systems?
 	recursiveSearch(obj, searchKey, results = [], callback) {

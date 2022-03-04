@@ -31,6 +31,9 @@
 	transform: scale(.5);
 	opacity: 0;
 }
+.displayResults .hidden {
+	pointer-events: none;
+}
 .displayResults .crit-success {
 	color: green;
 }
