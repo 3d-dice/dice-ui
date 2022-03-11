@@ -32,7 +32,7 @@ class DisplayResults {
 			}).flat()
 		}
 
-		let total = data.hasOwnProperty('value') ? data.value : rolls.reduce((val,roll) => val + roll.result,0)
+		let total = data.hasOwnProperty('value') ? data.value : rolls.reduce((val,roll) => val + roll.value,0)
 		let resultString = ''
 
 		rolls.forEach((roll,i) => {
@@ -44,14 +44,15 @@ class DisplayResults {
 			if(roll.success !== undefined && roll.success !== null){
 				val = roll.success ? `<svg class="success"><use href="${checkIcon}#checkmark"></use></svg>` : roll.failures > 0 ? `<svg class="failure"><use href="${cancelIcon}#cancel"></use></svg>` : `<svg class="null"><use href="${minusIcon}#minus"></use></svg>`
 			} else {
-				val = roll.value || roll.result
+				// convert to string in case value is 0 which would be evaluated as falsy
+				val = roll.value.toString()
 			}
 			let classes = `d${roll.die}`
 
-			if(roll.critical === "success" || (roll.result && roll.sides == roll.result)) {
+			if(roll.critical === "success" || (roll.hasOwnProperty('value') && roll.sides == roll.value)) {
 				classes += ' crit-success'
 			}
-			if(roll.critical === "failure" || (roll.result && roll.result === 1)) {
+			if(roll.critical === "failure" || (roll.hasOwnProperty('value') && roll.value <= 1)) {
 				classes += ' crit-failure'
 			}
 			if(roll.drop) {
