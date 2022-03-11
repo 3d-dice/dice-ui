@@ -33,6 +33,7 @@ class DisplayResults {
 		}
 
 		let total = data.hasOwnProperty('value') ? data.value : rolls.reduce((val,roll) => val + roll.value,0)
+		total = isNaN(total) ? '...' : total
 		let resultString = ''
 
 		rolls.forEach((roll,i) => {
@@ -45,7 +46,7 @@ class DisplayResults {
 				val = roll.success ? `<svg class="success"><use href="${checkIcon}#checkmark"></use></svg>` : roll.failures > 0 ? `<svg class="failure"><use href="${cancelIcon}#cancel"></use></svg>` : `<svg class="null"><use href="${minusIcon}#minus"></use></svg>`
 			} else {
 				// convert to string in case value is 0 which would be evaluated as falsy
-				val = roll.value.toString()
+				val = roll.hasOwnProperty('value') ? roll.value.toString() : '...'
 			}
 			let classes = `d${roll.die}`
 
