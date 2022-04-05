@@ -4,7 +4,7 @@
 		"name": "Frank Ali"
 	},
 	"description": "a Fantastic User Interface (FUI) that works with @3d-dice/dice_roller and @3d-dice/dice-box",
-	"version": "0.3.4",
+	"version": "0.3.5",
 	"keywords": [
 		"dice",
 		"dice-box",
@@ -21,11 +21,7 @@
 		"pathfinder"
 	],
 	"license": "MIT",
-	"engines": {
-		"node": ">=14.15.0",
-		"npm": "6.14.x"
-	},
-	"homepage": "https://github.com/3d-dice/fui#readme",
+	"homepage": "https://fantasticdice.games/",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/3d-dice/fui"
@@ -38,7 +34,7 @@
 	],
 	"main": "./index.js",
 	"dependencies": {
-		"@3d-dice/fdp": "^0.1.4",
+		"@3d-dice/fdp": "^0.1.5",
 		"dat.gui": "^0.7.9"
 	}
 }
