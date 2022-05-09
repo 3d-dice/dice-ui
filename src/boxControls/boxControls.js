@@ -11,6 +11,9 @@ class BoxControls {
 		this.gui.domElement.parentElement.style.zIndex = 2
 		this.config = {
 			enableShadows: true,
+			shadowOpacity: .8,
+			lightIntensity: 1,
+			suspendSimulation: false,
 			delay: 10,
 			gravity: 1,
 			mass: 1,
@@ -18,16 +21,18 @@ class BoxControls {
 			restitution: 0,
 			linearDamping: .5,
 			angularDamping: .4,
-			startingHeight: 20,
+			startingHeight: 8,
 			settleTimeout: 5000,
 			spinForce: 6,
-			throwForce: 3,
-			scale: 4,
-			theme: '#0974E6',
-			themes: [
+			throwForce: 5,
+			scale: 5,
+			themeColor: '#0974E6',
+			theme: [
+				'default',
 				'purpleRock',
 				'diceOfRolling',
-				'galvanized'
+				'blueGreenMetal',
+				'wooden'
 			]
 		}
 		// callback
@@ -52,9 +57,12 @@ class BoxControls {
 		const f2 = this.gui.addFolder('Rendering')
 		f2.add(this.config,'delay',10,500,10).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'scale',1,10,.1).onChange(this.handleUpdate.bind(this))
-		f2.add(this.config,'theme',this.config.themes).onChange(this.handleUpdate.bind(this))
-		f2.addColor(this.config, 'theme').onChange(this.handleUpdate.bind(this))
+		this.themeSelect = f2.add(this.config,'theme', this.config.theme).onChange(this.handleUpdate.bind(this))
+		f2.addColor(this.config, 'themeColor').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'enableShadows').onChange(this.handleUpdate.bind(this))
+		f2.add(this.config,'shadowOpacity',0,1,.01).onChange(this.handleUpdate.bind(this))
+		f2.add(this.config,'lightIntensity',0,5,.1).onChange(this.handleUpdate.bind(this))
+		f2.add(this.config,'suspendSimulation').onChange(this.handleUpdate.bind(this))
 		f2.open()
 
 		this.gui.close()
