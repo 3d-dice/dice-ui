@@ -6,22 +6,26 @@ import minusIcon from './icons/minus.svg'
 class DisplayResults {
 	constructor(selector) {
 		this.elem = document.createElement('div');
-		this.resultsElem = document.createElement('div')
 		this.elem.className = 'displayResults'
-		this.resultsElem.className = 'results hidden'
+		this.resultsElem1 = document.createElement('div')
+		this.resultsElem1.className = 'results hidden'
+		this.resultsElem2 = document.createElement('div')
+		this.resultsElem2.className = 'results hidden'
 		this.timeout = 500
 		this.target = document.querySelector(selector) || document.body
 		this.init()
 	}
 
 	async init(){
-		this.elem.append(this.resultsElem)
+		this.elem.append(this.resultsElem1)
+		this.elem.append(this.resultsElem2)
 		this.target.prepend(this.elem)
-		this.resultsElem.addEventListener('click', () => this.clear())
+		this.resultsElem1.addEventListener('click', () => this.clear())
+		this.resultsElem2.addEventListener('click', () => this.clear())
+		this.even = false
 	}
 
 	showResults(data){
-		// console.log(`data`, data)
 		let rolls
 		if(data.rolls && !Array.isArray(data.rolls)){
 			rolls = Object.values(data.rolls).map(roll => roll)
@@ -38,6 +42,7 @@ class DisplayResults {
 
 		rolls.forEach((roll,i) => {
 			let val
+			let sides = roll.die || roll.sides || 'fate'
 			if(i !== 0) {
 				resultString += ', '
 			}
@@ -48,12 +53,12 @@ class DisplayResults {
 				// convert to string in case value is 0 which would be evaluated as falsy
 				val = roll.hasOwnProperty('value') ? roll.value.toString() : '...'
 			}
-			let classes = `d${roll.die}`
+			let classes = `d${sides}`
 
-			if(roll.critical === "success" || (roll.hasOwnProperty('value') && roll.sides == roll.value)) {
+			if(roll.critical === "success" || (roll.hasOwnProperty('value') && sides == roll.value)) {
 				classes += ' crit-success'
 			}
-			if(roll.critical === "failure" || (roll.hasOwnProperty('value') && roll.value <= 1)) {
+			if(roll.critical === "failure" || (roll.hasOwnProperty('value') && roll.value <= 1 && sides !== 'fate')) {
 				classes += ' crit-failure'
 			}
 			if(roll.drop) {
@@ -65,6 +70,14 @@ class DisplayResults {
 			if(roll.explode) {
 				classes += ' die-exploded'
 			}
+			if(sides === 'fate'){
+				if(roll.value === 1){
+					classes += ' crit-success'
+				}
+				if(roll.value === -1){
+					classes += ' crit-failure'
+				}
+			}
 
 			if(classes !== ''){
 				val = `<span class='${classes.trim()}'>${val}</span>`
@@ -74,16 +87,20 @@ class DisplayResults {
 		})
 		resultString += ` = <strong>${total}</strong>`
 
-		this.resultsElem.innerHTML = resultString
-		if(!this.resultsElem.style.transition) {
-			this.resultsElem.style.transition = `all ${this.timeout}ms`
+		const currentElem = this[`resultsElem${this.even ? 2 : 1}`]
+		currentElem.innerHTML = resultString
+		if(!currentElem.style.transition) {
+			currentElem.style.transition = `all ${this.timeout}ms`
 		}
 		// this.resultsElem.classList.remove('hideEffect')
-		this.resultsElem.classList.replace('hidden','showEffect')
+		currentElem.classList.replace('hidden','showEffect')
+		this.even = !this.even
+
 	}
 	clear(){
-		this.resultsElem.classList.replace('showEffect','hideEffect')
-		setTimeout(()=>this.resultsElem.classList.replace('hideEffect', 'hidden'),this.timeout)
+		const currentElem = this[`resultsElem${this.even ? 1 : 2}`]
+			currentElem.classList.replace('showEffect','hideEffect')
+			setTimeout(()=>currentElem.classList.replace('hideEffect', 'hidden'),this.timeout)
 	}
 	// make this static for use by other systems?
 	recursiveSearch(obj, searchKey, results = [], callback) {

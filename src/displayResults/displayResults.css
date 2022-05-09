@@ -12,6 +12,7 @@
 	transform: translate3d(0,0,0);
 }
 .displayResults .results {
+	position: absolute;
 	cursor: pointer;
 	background: #CCCCCC;
 	font-size: 2rem;
@@ -26,10 +27,12 @@
 .displayResults .showEffect {
 	transform: scale(1);
 	opacity: 1;
+	z-index: 2;
 }
 .displayResults .hideEffect {
 	transform: scale(.5);
 	opacity: 0;
+	z-index: 1;
 }
 .displayResults .hidden {
 	pointer-events: none;
