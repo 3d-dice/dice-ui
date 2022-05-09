@@ -16,8 +16,12 @@ class AdvancedRoller{
 		`)
 		this.form = this.elem.querySelector('.adv-roller--form')
 
-		// create Notation Parser
-		this.DRP = new DiceParser()
+		// create Notation Parser - pass on options
+		this.DRP = new DiceParser({
+			targetRollsCritSuccess: options?.targetRollsCritSuccess || options?.targetRollsCritSuccess || false,
+			targetRollsCritFailure: options?.targetRollsCritFailure || options?.targetRollsCrit || false,
+			targetRollsCrit: options?.targetRollsCrit || false,
+		})
 
 		// callback events
 		this.onSubmit = options?.onSubmit || noop
