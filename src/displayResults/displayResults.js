@@ -5,14 +5,16 @@ import minusIcon from './icons/minus.svg'
 
 class DisplayResults {
 	constructor(selector) {
+		this.target = document.querySelector(selector) || document.body
+		this.timeout = 500
 		this.elem = document.createElement('div');
 		this.elem.className = 'displayResults'
 		this.resultsElem1 = document.createElement('div')
 		this.resultsElem1.className = 'results hidden'
+		this.resultsElem1.style.transition = `all ${this.timeout}ms`
 		this.resultsElem2 = document.createElement('div')
 		this.resultsElem2.className = 'results hidden'
-		this.timeout = 500
-		this.target = document.querySelector(selector) || document.body
+		this.resultsElem2.style.transition = `all ${this.timeout}ms`
 		this.init()
 	}
 
@@ -26,6 +28,7 @@ class DisplayResults {
 	}
 
 	showResults(data){
+		this.clear(this[`resultsElem${this.even ? 1 : 2}`])
 		let rolls
 		if(data.rolls && !Array.isArray(data.rolls)){
 			rolls = Object.values(data.rolls).map(roll => roll)
@@ -58,7 +61,7 @@ class DisplayResults {
 			if(roll.critical === "success" || (roll.hasOwnProperty('value') && sides == roll.value)) {
 				classes += ' crit-success'
 			}
-			if(roll.critical === "failure" || (roll.hasOwnProperty('value') && roll.value <= 1 && sides !== 'fate')) {
+			if(roll.critical === "failure" || (roll.success === null && roll.hasOwnProperty('value') && roll.value <= 1 && sides !== 'fate')) {
 				classes += ' crit-failure'
 			}
 			if(roll.drop) {
@@ -89,18 +92,19 @@ class DisplayResults {
 
 		const currentElem = this[`resultsElem${this.even ? 2 : 1}`]
 		currentElem.innerHTML = resultString
-		if(!currentElem.style.transition) {
-			currentElem.style.transition = `all ${this.timeout}ms`
-		}
 		// this.resultsElem.classList.remove('hideEffect')
-		currentElem.classList.replace('hidden','showEffect')
+		clearTimeout(currentElem.hideTimer)
+		currentElem.classList.add('showEffect')
+		currentElem.classList.remove('hidden')
+		currentElem.classList.remove('hideEffect')
 		this.even = !this.even
 
 	}
-	clear(){
-		const currentElem = this[`resultsElem${this.even ? 1 : 2}`]
-			currentElem.classList.replace('showEffect','hideEffect')
-			setTimeout(()=>currentElem.classList.replace('hideEffect', 'hidden'),this.timeout)
+	clear(elem){
+		const currentElem = elem || this[`resultsElem${this.even ? 1 : 2}`]
+		currentElem.classList.replace('showEffect','hideEffect')
+		this.even = !this.even
+		currentElem.hideTimer = setTimeout(()=>currentElem.classList.replace('hideEffect', 'hidden'),this.timeout)
 	}
 	// make this static for use by other systems?
 	recursiveSearch(obj, searchKey, results = [], callback) {
