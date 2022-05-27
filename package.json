@@ -1,10 +1,10 @@
 {
-	"name": "@3d-dice/fui",
+	"name": "@3d-dice/dice-ui",
 	"author": {
 		"name": "Frank Ali"
 	},
-	"description": "a Fantastic User Interface (FUI) that works with @3d-dice/dice_roller and @3d-dice/dice-box",
-	"version": "0.3.5",
+	"description": "User Interface components that works with @3d-dice/dice-parser-interface and @3d-dice/dice-box",
+	"version": "0.4.0",
 	"keywords": [
 		"dice",
 		"dice-box",
@@ -12,7 +12,7 @@
 		"roll",
 		"roll20",
 		"rpg",
-		"trpg",
+		"ttrpg",
 		"tabletop",
 		"dnd",
 		"d&d",
@@ -24,17 +24,17 @@
 	"homepage": "https://fantasticdice.games/",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/3d-dice/fui"
+		"url": "https://github.com/3d-dice/dice-ui"
 	},
 	"bugs": {
-		"url": "https://github.com/3d-dice/fui/issues"
+		"url": "https://github.com/3d-dice/dice-ui/issues"
 	},
 	"files": [
 		"src"
 	],
 	"main": "./index.js",
 	"dependencies": {
-		"@3d-dice/fdp": "^0.1.5",
+		"@3d-dice/dice-parser-interface": "^0.2.0",
 		"dat.gui": "^0.7.9"
 	}
 }
