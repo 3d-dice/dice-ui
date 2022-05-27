@@ -26,14 +26,8 @@ class BoxControls {
 			spinForce: 6,
 			throwForce: 5,
 			scale: 5,
-			themeColor: '#0974E6',
-			theme: [
-				'default',
-				'purpleRock',
-				'diceOfRolling',
-				'blueGreenMetal',
-				'wooden'
-			]
+			themeColor: options.themeColor || '#0974E6',
+			theme: options.themes || ['default']
 		}
 		// callback
 		this.onUpdate = options?.onUpdate || noop
@@ -58,7 +52,7 @@ class BoxControls {
 		f2.add(this.config,'delay',10,500,10).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'scale',1,10,.1).onChange(this.handleUpdate.bind(this))
 		this.themeSelect = f2.add(this.config,'theme', this.config.theme).onChange(this.handleUpdate.bind(this))
-		f2.addColor(this.config, 'themeColor').onChange(this.handleUpdate.bind(this))
+		this.themeColorPicker = f2.addColor(this.config, 'themeColor').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'enableShadows').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'shadowOpacity',0,1,.01).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'lightIntensity',0,5,.1).onChange(this.handleUpdate.bind(this))
