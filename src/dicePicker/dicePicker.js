@@ -1,5 +1,5 @@
 import './dicePicker.css'
-import DiceParser from '@3d-dice/fdp'
+import DiceParser from '@3d-dice/dice-parser-interface'
 
 import diceIcons from './icons/polyhedral_dice.svg'
 

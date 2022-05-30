@@ -1,5 +1,5 @@
 import './advancedRoller.css'
-import DiceParser from '@3d-dice/fdp'
+import DiceParser from '@3d-dice/dice-parser-interface'
 
 const noop = () => {}
 
