@@ -11,7 +11,7 @@ class BoxControls {
 		this.gui.domElement.parentElement.style.zIndex = 2
 		this.config = {
 			enableShadows: true,
-			shadowOpacity: .8,
+			shadowTransparency: .8,
 			lightIntensity: 1,
 			suspendSimulation: false,
 			delay: 10,
@@ -54,7 +54,7 @@ class BoxControls {
 		this.themeSelect = f2.add(this.config,'theme', this.config.theme).onChange(this.handleUpdate.bind(this))
 		this.themeColorPicker = f2.addColor(this.config, 'themeColor').onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'enableShadows').onChange(this.handleUpdate.bind(this))
-		f2.add(this.config,'shadowOpacity',0,1,.01).onChange(this.handleUpdate.bind(this))
+		f2.add(this.config,'shadowTransparency',0,1,.01).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'lightIntensity',0,5,.1).onChange(this.handleUpdate.bind(this))
 		f2.add(this.config,'suspendSimulation').onChange(this.handleUpdate.bind(this))
 		f2.open()
