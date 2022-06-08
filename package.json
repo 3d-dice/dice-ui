@@ -4,7 +4,7 @@
 		"name": "Frank Ali"
 	},
 	"description": "User Interface components that works with @3d-dice/dice-parser-interface and @3d-dice/dice-box",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"keywords": [
 		"dice",
 		"dice-box",
