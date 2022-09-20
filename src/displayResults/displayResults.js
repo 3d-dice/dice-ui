@@ -39,7 +39,15 @@ class DisplayResults {
 			}).flat()
 		}
 
-		let total = data.hasOwnProperty('value') ? data.value : rolls.reduce((val,roll) => val + roll.value,0)
+		let total = 0
+		if(data.hasOwnProperty('value')) {
+			total = data.value
+		} else { 
+			total = rolls.reduce((val,roll) => val + roll.value,0)
+			let modifier = data.reduce((val,roll) => val + roll.modifier,0)
+			total += modifier
+		}
+
 		total = isNaN(total) ? '...' : total
 		let resultString = ''
 
