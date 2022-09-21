@@ -147,7 +147,20 @@ class dicePicker {
   }
 
   handleResults(results){
-		// console.log(`results`, results)
+
+    // convert string names back to intigers needed by DRP
+    const diceNotation = /[dD]\d+/i
+    results.forEach(result => {
+      if(typeof result.sides === "string" && result.sides.match(diceNotation)){
+        result.sides = parseInt(result.sides.substring(1))
+      }
+      result.rolls.forEach(roll => {
+        if(typeof roll.sides === "string" && roll.sides.match(diceNotation)){
+          roll.sides = parseInt(roll.sides.substring(1))
+        }
+      })
+    })
+
 		const rerolls = this.DRP.handleRerolls(results)
 		if(rerolls.length) {
 			this.onReroll(rerolls)
