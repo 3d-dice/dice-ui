@@ -1,40 +1,40 @@
 {
-	"name": "@3d-dice/dice-ui",
-	"author": {
-		"name": "Frank Ali"
-	},
-	"description": "User Interface components that works with @3d-dice/dice-parser-interface and @3d-dice/dice-box",
-	"version": "0.4.2",
-	"keywords": [
-		"dice",
-		"dice-box",
-		"roller",
-		"roll",
-		"roll20",
-		"rpg",
-		"ttrpg",
-		"tabletop",
-		"dnd",
-		"d&d",
-		"dungeons",
-		"dragons",
-		"pathfinder"
-	],
-	"license": "MIT",
-	"homepage": "https://fantasticdice.games/",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/3d-dice/dice-ui"
-	},
-	"bugs": {
-		"url": "https://github.com/3d-dice/dice-ui/issues"
-	},
-	"files": [
-		"src"
-	],
-	"main": "./src/index.js",
-	"dependencies": {
-		"@3d-dice/dice-parser-interface": "^0.2.0",
-		"dat.gui": "^0.7.9"
-	}
+  "name": "@3d-dice/dice-ui",
+  "author": {
+    "name": "Frank Ali"
+  },
+  "description": "User Interface components that works with @3d-dice/dice-parser-interface and @3d-dice/dice-box",
+  "version": "0.4.3",
+  "keywords": [
+    "dice",
+    "dice-box",
+    "roller",
+    "roll",
+    "roll20",
+    "rpg",
+    "ttrpg",
+    "tabletop",
+    "dnd",
+    "d&d",
+    "dungeons",
+    "dragons",
+    "pathfinder"
+  ],
+  "license": "MIT",
+  "homepage": "https://fantasticdice.games/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/3d-dice/dice-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/3d-dice/dice-ui/issues"
+  },
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.js",
+  "dependencies": {
+    "@3d-dice/dice-parser-interface": "^0.2.0",
+    "dat.gui": "^0.7.9"
+  }
 }
