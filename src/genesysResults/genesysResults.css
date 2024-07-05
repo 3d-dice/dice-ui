@@ -65,31 +65,31 @@
 	height: 50px;
 }
 
-.die-boost {
+.genesysResults .die-boost {
 	color: #1396AB;
 }
-.die-setback {
+.genesysResults .die-setback {
 	color: #000;
 }
-.die-ability {
+.genesysResults .die-ability {
 	color: #339730;
 }
-.die-difficulty {
+.genesysResults .die-difficulty {
 	color: #B921EF;
 }
-.die-challenge {
+.genesysResults .die-challenge {
 	color: #971D17;
 }
-.die-proficiency {
+.genesysResults .die-proficiency {
 	color: #DAA42A;
 }
 
 /* Tooltip container */
-.tooltip {
+.genesysResults .tooltip {
   position: relative;
 }
 
-.tooltip .tooltiptext {
+.genesysResults .tooltiptext {
   visibility: hidden;
   background-color: black;
   color: #fff;
@@ -105,7 +105,7 @@
 	transform: translateX(-50%)
 }
 
-.tooltip .tooltiptext::after {
+.genesysResults .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
