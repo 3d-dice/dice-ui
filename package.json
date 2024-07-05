@@ -3,8 +3,8 @@
   "author": {
     "name": "Frank Ali"
   },
-  "description": "User Interface components that works with @3d-dice/dice-parser-interface and @3d-dice/dice-box",
-  "version": "0.4.3",
+  "description": "User Interface components that works with @3d-dice/dice-box and @3d-dice/dice-parser-interface",
+  "version": "0.5.0",
   "keywords": [
     "dice",
     "dice-box",
@@ -18,7 +18,8 @@
     "d&d",
     "dungeons",
     "dragons",
-    "pathfinder"
+    "pathfinder",
+    "genesys"
   ],
   "license": "MIT",
   "homepage": "https://fantasticdice.games/",
@@ -34,7 +35,7 @@
   ],
   "main": "./src/index.js",
   "dependencies": {
-    "@3d-dice/dice-parser-interface": "^0.2.0",
+    "@3d-dice/dice-parser-interface": "^0.2.1",
     "dat.gui": "^0.7.9"
   }
 }
