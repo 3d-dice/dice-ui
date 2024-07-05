@@ -1,0 +1,121 @@
+.genesysResults {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 1;
+	transform: translate3d(0,0,0);
+}
+.genesysResults .results {
+	position: absolute;
+	cursor: pointer;
+	background: #CCCCCC;
+	padding: 10px 20px;
+	margin: 40px;
+	border-radius: 10px;
+	text-align: center;
+	transform: scale(1.5);
+	opacity: 0;
+	pointer-events: all;
+	/* transition: all 500ms; pageload issue here */
+}
+
+
+.genesysResults .totals > span {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 20px;
+}
+.genesysResults .totals > span:last-child {
+	margin-right: 0
+}
+
+.genesysResults .total {
+	font-size: 2rem;
+}
+
+.genesysResults .showEffect {
+	transform: scale(1);
+	opacity: 1;
+	z-index: 2;
+}
+.genesysResults .hideEffect {
+	transform: scale(.5);
+	opacity: 0;
+	z-index: 1;
+}
+.genesysResults .hidden {
+	pointer-events: none;
+}
+
+.genesysResults .symbol {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+}
+
+.genesysResults .totals .symbol {
+	width: 50px;
+	height: 50px;
+}
+
+.die-boost {
+	color: #1396AB;
+}
+.die-setback {
+	color: #000;
+}
+.die-ability {
+	color: #339730;
+}
+.die-difficulty {
+	color: #B921EF;
+}
+.die-challenge {
+	color: #971D17;
+}
+.die-proficiency {
+	color: #DAA42A;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+	font-size: 1.5rem;
+	line-height: 100%;
+	transform: translateX(-50%)
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
