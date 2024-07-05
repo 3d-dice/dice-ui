@@ -1,0 +1,39 @@
+.genesys-dice-picker {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.genesys-dice-picker .die {
+  height: 70px;
+  width: auto;
+}
+.genesys-dice-picker .dice {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.genesys-dice-picker .dice button {
+  background-color: transparent;
+  border: none;
+}
+
+.genesys-dice-picker .output {
+  display: inline-block;
+  min-height: 2.2rem;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+
+.genesys-dice-picker button img {
+	filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+}
