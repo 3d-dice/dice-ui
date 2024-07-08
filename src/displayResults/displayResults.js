@@ -101,7 +101,7 @@ class DisplayResults {
 			let sides = roll.die || roll.sides || 'fate'
 
 			if(i !== 0 && resultString.length) {
-				if(roll.value && (roll.value.length || typeof roll.value === 'number')) {
+				if(typeof roll.value !== 'undefined' && (roll.value.length || typeof roll.value === 'number')) {
 					resultString += ', '
 				}
 			}
@@ -111,11 +111,12 @@ class DisplayResults {
 			} else {
 				// convert to string in case value is 0 which would be evaluated as falsy
 				val = roll.hasOwnProperty('value') ? roll.value.toString() : '...'
-				// space comma seperated values
+				// space comma separated values from arrays
 				if(val.includes(',')){
 					val = val.replace(',', ', ')
 				}
 			}
+
 			let classes = `d${sides}`
 
 			if(roll.critical === "success" || (roll.hasOwnProperty('value') && sides == roll.value)) {
