@@ -83,6 +83,11 @@
 .genesysResults .die-proficiency {
 	color: #DAA42A;
 }
+.genesysResults .die-blank {
+	font-size: 3rem;
+	line-height: 100%;
+	padding: 8px 0 0;
+}
 
 /* Tooltip container */
 .genesysResults .tooltip {

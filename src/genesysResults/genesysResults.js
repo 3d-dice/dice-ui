@@ -53,8 +53,8 @@ class GenesysResults {
 					resultString += `<span class='die-${dieType}'>${icon}</span>`
 				}
 			}
-			rolls.forEach(roll => {
 
+			rolls.forEach(roll => {
 				const dieType = roll.sides
 				// if value is a string
 				if(typeof roll.value === 'string'){
@@ -76,6 +76,10 @@ class GenesysResults {
 				const icon = `<svg class="symbol"><use xlink:href="${icons}#${key}" /></svg>`
 				return `<span><span class="tooltip">${icon}<span class="tooltiptext">${key}</span></span><span class="total">:${val}</span></span>`
 			})
+			// square options ■ ⬛
+			if(!totals.length) {
+				totals.push(`<span><span class="tooltip die-blank">⬛<span class="tooltiptext">blank</span></span></span>`)
+			}
 		}
 
 		resultString += '</div>'
