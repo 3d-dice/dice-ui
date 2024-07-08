@@ -9,7 +9,7 @@ class AdvancedRoller {
     this.elem = document.createRange().createContextualFragment(`
 			<div class="adv-roller">
 				<form class="adv-roller--form">
-					<input class="adv-roller--notation" placeholder="2d20" autocomplete="off" />
+					<input class="adv-roller--notation" placeholder="2d20kh1" autocomplete="off" />
 					<input class="adv-roller--clear" type="reset" value="Clear" />
 				</form>
 			</div>
