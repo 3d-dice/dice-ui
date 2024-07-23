@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 613 555" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+<svg viewBox="0 0 613 555" xmlns="http://www.w3.org/2000/svg" xmlnsBx="https://boxy-svg.com">
   <defs>
     <style>
       .die_color{fill:#fff}
@@ -9,7 +9,7 @@
       svg .die{display:none}
       svg .die:target{display:inline}
     </style>
-    <bx:guide x="0" y="555" angle="90"/>
+    <bxGuide x="0" y="555" angle="90"/>
   </defs>
   <title>polyhedral dice</title>
   <g id="d100_die" data-name="d100 die" class="die" transform="matrix(1.140784, 0, 0, 1.140784, -128.678177, -937.558594)">
